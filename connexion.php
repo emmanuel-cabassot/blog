@@ -2,6 +2,7 @@
 // On débute la session
 session_start();
 
+
 // Connexion a la BDD avec descriptif plus clair si il y a une erreur (array) 
 try
 {
@@ -19,24 +20,26 @@ if (isset($_POST['login']) AND isset($_POST['password']))
 {   
     $login = htmlspecialchars($_POST['login'], ENT_QUOTES);
     /* recherche $login dans la base de donnée */    
-    $req = $bdd->prepare('SELECT login, password, id FROM utilisateurs WHERE login = :login');
+    $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE login = :login');
     $req->execute(array(
     'login' => $login
     ));
 
     //Met dans $data le tableau de $req
-    $data = $req->fetch();
-    $data['id'];
-
+    $data = $req->fetchall();
+    
     // Vérifie si il y a une ligne qui correspond
     $row = $req->rowCount();
 
     //Si oui verifie que le mot de passe est le bon
     if ($row == 1) {
-        if (password_verify($_POST['password'], $data['password'])) {
+        if (password_verify($_POST['password'], $data['0']['password'])) {
             $_SESSION['login'] = $login;
-            $_SESSION['id'] =  $data['id'];
-            header('location:../index.php'); 
+            $_SESSION['id'] =  $data[0]['id'];
+            $_SESSION['id_droits'] = $data[0]['id_droits'];
+            $_SESSION['email'] = $data[0]['email'];
+
+            /* header('location:index.php'); */ 
         }
         //Sinon mot de passe incorrect
         else {
@@ -49,21 +52,21 @@ if (isset($_POST['login']) AND isset($_POST['password']))
     }   
 }   
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
+    
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <title>RésaSalle inscription</title>
 </head>
 <body>
-    <header>
-    <?php
-    require('php/include/header.php')
-    ?>
-    </header>
-    <main class="main_connexion">
+<header>
+    <?php require('php/include/header.php') ?>
+</header>
+<main class="main_connexion">
         <section class=connexion>        
             <h1>Connexion</h1>        
             <section>
@@ -92,12 +95,9 @@ if (isset($_POST['login']) AND isset($_POST['password']))
             </section>
         </section>
     </main>
-    <footer>
-    <!-- <?php require('footer.php') ?> -->
-    </footer>
+<footer>
+  <!-- <?php require('footer.php') ?> -->
+</footer>
+
 </body>
-
 </html>
-    
-
-

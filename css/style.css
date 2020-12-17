@@ -127,6 +127,7 @@ background-color:  #283445;
     margin-bottom: 20px;
 }
 
+/* Message ok */
 .message_ok{
     color:  #283445;
     font-size: 1.1em;
@@ -169,10 +170,29 @@ input{
     transition: background-color 0.6s;
 }
 
-                /* ERREUR  */
+/* MESSAGE OK */
+.message_ok{
+    color:  #283445;
+    font-size: 1.1em;
+    line-height: 2.5em;
+}
+
+.message_ok a{
+    background-color: #283445;
+    border-radius: 8px;
+    padding: 10px 5px;
+    color: white;
+}
+
+.message_ok a:hover{
+    background-color: #334258;
+}
+
+/* ERREUR  */
 .erreur p{
     color: red;
-    font-size: 1.1em;    
+    font-size: 1.1em;
+    margin: 10px;    
 }
 
 .erreur h2{
@@ -233,12 +253,12 @@ input{
     text-align: center;
     background-color: white;
     border-radius: 20px;
-    margin: 30px 0 30px 0; 
+    margin: 30px 0; 
     animation: encadre 3s;
 }
 
 .profil h1{
     color:  #283445;
     font-size: 1.9em;
-    margin-bottom: 20px;
+    padding: 30px 0;
 }

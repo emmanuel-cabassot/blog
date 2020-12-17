@@ -39,21 +39,21 @@
     </section>
 </section>
 <section class = header_slogan>
-    <section class="slogantext"></section>
-<h1>
-<?php
-    if (!isset($_SESSION['login'])) 
-    {
-        echo '<h1>Montez votre ordinateur</h1>
-                <p>Pièces, composants, prix, nouveautés. Vous êtes au bon endroit.</p>';
-    }
+    <section class="slogantext">
+        <h1>
+        <?php
+            if (!isset($_SESSION['login'])) 
+            {
+                echo '<h1>Montez votre ordinateur</h1>
+                        <p>Pièces, composants, prix, nouveautés. Vous êtes au bon endroit.</p>';
+            }
 
-    if (isset($_SESSION['login']))
-    {
-        echo '<h1>Montez votre ordinateur</h1>
-        <p>Bonjour '.$_SESSION['login'].', bravo. Vous emmagasinez des connaisances</p>';
-    }    
-?>
-</h1>
+            if (isset($_SESSION['login']))
+            {
+                echo '<h1>Montez votre ordinateur</h1>
+                <p>Bienvenue '.$_SESSION['login'].'.</p>';
+            }    
+        ?>
+        </h1>
     </section>
 </section>

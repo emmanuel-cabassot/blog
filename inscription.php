@@ -20,7 +20,8 @@ catch (Exception $e)
 //Vérifie que le mot de passe à bien été confirmé 
 if (isset($_POST['envoyer']) AND  $_POST['password'] != $_POST['confirm_password']) 
 {
-    $message = 'Mot de passe et confirmation du mot de passe sont différents';
+    $message = '<p>Mot de passe et confirmation du mot de passe sont différents</p>';
+    
 }
 // Autre contrôle pour vérifier si la variable $_POST['Bouton'] est bien définie et que la confirmation du mot de passe est ok
 if(isset($_POST['envoyer']) AND $_POST['password'] === $_POST['confirm_password']) 
@@ -44,7 +45,7 @@ if(isset($_POST['envoyer']) AND $_POST['password'] === $_POST['confirm_password'
 
     if ($row == 1) 
     {
-        $message = $login.' existe déjà.';
+        $message = '<p>'.$login.' existe déjà.</p>';
     }
     else 
     {
@@ -87,7 +88,7 @@ if(isset($_POST['envoyer']) AND $_POST['password'] === $_POST['confirm_password'
             <section>
                 <form action="" method="post">
                     <div class = erreur>
-                    <p>
+                    
                     <?php 
                     if (isset($message)) 
                     {
@@ -98,7 +99,7 @@ if(isset($_POST['envoyer']) AND $_POST['password'] === $_POST['confirm_password'
                         echo $erreur_modification;
                     }
                     ?>  
-                    </p>                  
+                                      
                     </div>
                     <div>
                         <label for="login">Login</label><br>
