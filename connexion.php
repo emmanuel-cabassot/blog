@@ -96,7 +96,7 @@ if (isset($_POST['login']) AND isset($_POST['password']))
         </section>
     </main>
 <footer>
-  <!-- <?php require('footer.php') ?> -->
+  <?php require('php/include/footer.php') ?>
 </footer>
 
 </body>

@@ -106,7 +106,7 @@ else
         </section>
     </main>
     <footer>
-    <!-- <?php require('footer.php')?> --> 
+    <?php require('php/include/footer.php') ?> 
     </footer>  
 </body>
 

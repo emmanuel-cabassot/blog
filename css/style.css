@@ -262,3 +262,85 @@ input{
     font-size: 1.9em;
     padding: 30px 0;
 }
+
+                /* FOOTER */
+footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(231, 228, 228);
+    padding: 10px 0;
+}
+
+footer .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    font-size: 1.6em;
+}
+
+footer .logo div{
+    background-color: #ce111a;
+    color: white;
+    padding: 10px 12px;
+}
+
+footer .logo .texte{
+    padding: 15px 12px 15px 0;
+
+}
+
+footer .logo img{
+    margin-right: 4xp;
+    height: 30px;
+    margin-top: 3px;
+    
+
+}
+
+
+
+footer .coordonnees{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    text-align: center;
+}
+
+footer h3{
+    text-align: center;
+    margin: 5px 0;
+}
+
+
+footer .navigation{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    
+}
+footer .navigation a{
+    color: white;
+    background-color: #334258;
+    padding: 5px ;
+    border-radius: 8px;
+    line-height: 2em;
+}
+
+
+footer .social{
+    display: flex;
+    align-items: center;
+    width: 20%;
+}
+
+footer .social img{
+    height: 50px;
+    margin: 10px;
+}
+
+

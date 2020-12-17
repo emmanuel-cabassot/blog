@@ -127,7 +127,7 @@ if(isset($_POST['envoyer']) AND $_POST['password'] === $_POST['confirm_password'
         </section>
     </main>
     <footer>
-    <!-- <?php require('footer.php')?>   -->
+    <<?php require('php/include/footer.php') ?>
     </footer>
 
 </body>
