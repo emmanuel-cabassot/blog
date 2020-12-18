@@ -32,8 +32,9 @@ header{
 
 
 .header_logo img{
-    height: 15px;
+    height: 20px;
 }
+
 
 .header_logo a:hover{
     background-color:  #ce111a;
@@ -95,3 +96,252 @@ header{
     color: #283445;
     animation: slogan 3s;
 }
+
+                /*INSCRIPTION */
+.main_inscription{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 550px;
+text-align: center;
+background-color:  #283445;
+}
+/* formulaire d'inscription */
+.formulaire{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 370px;
+    height: 450px;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    animation: encadre 3s;
+}
+
+.formulaire h1{
+    color: #283445;
+    padding: 0 10px;
+    font-size: 1.9em;
+    margin-bottom: 20px;
+}
+
+/* Message ok */
+.message_ok{
+    color:  #283445;
+    font-size: 1.1em;
+    line-height: 1.9em;
+}
+
+.message_ok a{
+    background-color: #283445;
+    border-radius: 8px;
+    padding: 10px 5px;
+    color: white;
+}
+
+.message_ok a:hover{
+    background-color: #334258;
+}
+
+
+                /* LABEL ET INPUT (pour toutes les pages) */
+label{
+    font-size: 1.2em;
+}
+
+input{
+    margin-bottom: 15px;
+    width: 250px;
+    height: 25px;
+}
+                /* BOUTON SUBMIT (pour toutes les pages) */
+.bouton input{
+    color: white;
+    background-color:  #334258;
+    transition: background-color 0.6s;
+    height: 40px;
+    margin-top: 15px;
+}
+
+.bouton input:hover{
+    background-color: #283445;
+    transition: background-color 0.6s;
+}
+
+/* MESSAGE OK */
+.message_ok{
+    color:  #283445;
+    font-size: 1.1em;
+    line-height: 2.5em;
+}
+
+.message_ok a{
+    background-color: #283445;
+    border-radius: 8px;
+    padding: 10px 5px;
+    color: white;
+}
+
+.message_ok a:hover{
+    background-color: #334258;
+}
+
+/* ERREUR  */
+.erreur p{
+    color: red;
+    font-size: 1.1em;
+    margin: 10px;    
+}
+
+.erreur h2{
+    color: #1b771f;
+    margin: 20px;
+}
+
+
+                /*CONNEXION */
+.main_connexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 420px;
+    text-align: center;
+    background-color:  #283445;
+}
+
+/* Formulaire connexion */
+.connexion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 370px;
+    height: 320px;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    animation: encadre 3s;
+}
+
+.connexion h1{
+    color:  #283445;
+    font-size: 1.9em;
+    margin-bottom: 20px;
+}
+
+                /*PROFIL */
+.main_profil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 570px;
+    text-align: center;
+    background-color:  #283445;
+}
+
+/* Formulaire profil */
+.profil{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 370px;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    margin: 30px 0; 
+    animation: encadre 3s;
+}
+
+.profil h1{
+    color:  #283445;
+    font-size: 1.9em;
+    padding: 30px 0;
+}
+
+                /* FOOTER */
+footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(231, 228, 228);
+    padding: 10px 0;
+}
+
+footer .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    font-size: 1.6em;
+}
+
+footer .logo div{
+    background-color: #ce111a;
+    color: white;
+    padding: 10px 12px;
+}
+
+footer .logo .texte{
+    padding: 15px 12px 15px 0;
+
+}
+
+footer .logo img{
+    margin-right: 4xp;
+    height: 30px;
+    margin-top: 3px;
+    
+
+}
+
+
+
+footer .coordonnees{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    text-align: center;
+}
+
+footer h3{
+    text-align: center;
+    margin: 5px 0;
+}
+
+
+footer .navigation{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    
+}
+footer .navigation a{
+    color: white;
+    background-color: #334258;
+    padding: 5px ;
+    border-radius: 8px;
+    line-height: 2em;
+}
+
+
+footer .social{
+    display: flex;
+    align-items: center;
+    width: 20%;
+}
+
+footer .social img{
+    height: 50px;
+    margin: 10px;
+}
+
+
