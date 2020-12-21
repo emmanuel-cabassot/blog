@@ -1,3 +1,10 @@
+<?php
+require '../traitement/traitement-index.php';
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +34,21 @@
 </section>
 <h2>carnet de voyage</h2>
 <p>nos dernier voyage autour du monde</p>
+<?php
+    for ($i=0; $i<3; $i++) {
+        echo '<div>';
+        echo 'Posté le : '.date("d-m-Y H:m",strtotime($resultat[$i]['date']));
+        echo '<p>' .$resultat[$i][ 'article' ] .'</p>';
+        echo '</div>';
+    }
+
+
+
+
+?>
 <section>
     <div>
+   
         <img src="../img/strasbourg.jpg" alt="photo">
         <a href="https://oiseaurose.com/que-faire-a-strasbourg-visiter/">que faire a strasbourg?visiter la ville</a>
     </div>
