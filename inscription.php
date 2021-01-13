@@ -1,62 +1,52 @@
 <?php 
+// On demarre la session
 session_start();
 
 //Reinitialise messages
-$erreur_modification = null;
+$message_erreur = null;
 $messageok = null;
 
-// Connexion a la BDD avec descriptif plus clair si il y a une erreur (array) 
-try
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
+// Appelle les classes
+require_once 'Autoloader.php';
 
-catch (Exception $e)
-{
-        die('Erreur : ' . $e->getMessage());
-}
-// Si tout va bien, on peut continuer
+// Permet de ne pas nommer les namespaces des classes Autoloader et Db
+use App\Autoloader;
+use App\php\Classes\Models\UtilisateursModel;
+
+// Autoloader permettant d'appeler les classes automatiquement
+Autoloader::register();
 
 //Vérifie que le mot de passe à bien été confirmé 
 if (isset($_POST['envoyer']) AND  $_POST['password'] != $_POST['confirm_password']) 
 {
-    $message = '<p>Mot de passe et confirmation du mot de passe sont différents</p>';
-    
+    $message_erreur = '<p>Mot de passe et confirmation du mot de passe sont différents</p>';   
 }
-// Autre contrôle pour vérifier si la variable $_POST['Bouton'] est bien définie et que la confirmation du mot de passe est ok
-if(isset($_POST['envoyer']) AND $_POST['password'] === $_POST['confirm_password']) 
+
+// Contrôle pour vérifier si la variable $_POST['Bouton'] est bien définie et que la confirmation du mot de passe est ok
+if(isset($_POST['envoyer']) AND $_POST['password'] === $_POST['confirm_password'])  
 {   
     //enregistre les variables de login et password
     $login = htmlspecialchars($_POST['login'], ENT_QUOTES);
     $email = htmlspecialchars($_POST['email'], ENT_QUOTES);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-
-    //Vérifie que le login n'est pas déjà pris et est inconnu dans la BDD
-    $req = $bdd->prepare ('SELECT `login`FROM `utilisateurs` WHERE login = :login');
-    $req->execute(array(
-        'login' => $login));
-
-    //Met dans $data le tableau de $req
-    $data = $req->fetch();
+    
+    $bd = new UtilisateursModel();
+    $data = $bd->login($login);
 
     // Vérifie si il y a une ligne qui correspond
-    $row = $req->rowCount();
-
-    if ($row == 1) 
+    if (!empty($data))
     {
-        $message = '<p>'.$login.' existe déjà.</p>';
+        $message_erreur = '<p>'.$login.' existe déjà.</p>';
     }
     else 
     {
-        // Requête d'insertion et insertion
-        $nouvelle_inscription = $bdd->prepare ('INSERT INTO utilisateurs (login, email, password, id_droits) VALUES (:login, :email, :password, :id_droits)');
-        $nouvelle_inscription->execute(array(
-        'login' => $login, 
-        'email' => $email, 
-        'password' => $password,
-        'id_droits' => 1));
-        
+        // On enregistre en Bdd l'utilisateur 
+        $bd->setLogin($login)
+            ->setEmail($email)
+            ->setPassword($password)
+            ->setId_droits(1);
+        $bd->create();
+
         $messageok = "<section class=message_ok>Votre profil a bien été crée, vous pouvez <br> <a href=\"connexion.php\">vous connecter.</section>";
     }         
 }
