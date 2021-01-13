@@ -3,54 +3,44 @@
 session_start();
 
 
-// Connexion a la BDD avec descriptif plus clair si il y a une erreur (array) 
-try
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-// En cas d'erreur, on affiche un message et on arrête tout
-catch (Exception $e)
-{
-        die('Erreur : ' . $e->getMessage());
-}
-// Si tout va bien, on peut continuer
+// Appel de l'Autoloader
+require 'Autoloader.php';
+
+// Recherche les classes dans leur namespace
+use App\Autoloader;
+use App\php\Classes\Db\Db;
+use App\php\Classes\Models\UtilisateursModel;
+ 
+// Autoloader permettant d'appeler les classes automatiquement
+Autoloader::register();
+Db::getInstance();
+
+
 
 /* Vérificatin que login et password ont été renseignés */
 if (isset($_POST['login']) AND isset($_POST['password'])) 
 {   
-    $login = htmlspecialchars($_POST['login'], ENT_QUOTES);
-    /* recherche $login dans la base de donnée */    
-    $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE login = :login');
-    $req->execute(array(
-    'login' => $login
-    ));
+    // On instancie la classe
+    $bd = new UtilisateursModel();
 
-    //Met dans $data le tableau de $req
-    $data = $req->fetchall();
+    // Requete demandant à la base de donnée si login à une correspondance
+    $data = $bd->login($_POST['login']);
     
-    // Vérifie si il y a une ligne qui correspond
-    $row = $req->rowCount();
-
-    //Si oui verifie que le mot de passe est le bon
-    if ($row == 1) {
-        if (password_verify($_POST['password'], $data['0']['password'])) {
-            $_SESSION['login'] = $login;
-            $_SESSION['id'] =  $data[0]['id'];
-            $_SESSION['id_droits'] = $data[0]['id_droits'];
-            $_SESSION['email'] = $data[0]['email'];
-
-            /* header('location:index.php'); */ 
-        }
-        //Sinon mot de passe incorrect
-        else {
-            $message = "Mot de passe incorrect";
-        }
+    if(!empty($data) AND password_verify($_POST['password'], $data->password)){
+        // Si $data n'est pas vide, bingo: correspondance trouvée
+        // Si password_verify() fonctionne alors mot de passe ok
         
-    }//Sinon login inexistant
+        // On hydrate l'objet $user grace à $data
+        $user = $bd->hydrate($data);
+        // On insère alors les variables de session grace à setSession()
+        $user->setSession();
+    }
     else {
-        $message = "Le nom d'utilisateur est incorrect.";
-    }   
-}   
+            $message = "Mot de passe ou login incorrect";
+    }
+     
+}
+ 
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +50,7 @@ if (isset($_POST['login']) AND isset($_POST['password']))
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RésaSalle inscription</title>
+    <title>blog_connexion</title>
 </head>
 <body>
 <header>

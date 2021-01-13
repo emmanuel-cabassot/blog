@@ -4,10 +4,10 @@
 </section>
 <section class="coordonnees">
     <h3>Coordonnées</h3>
-    <p>Pc Pro<br>
+    <p>Voyages<br>
     30 rue de la bonne pioche<br>
     13008 Marseille<br>
-    email : pcpro@gmail.com<br>
+    email : voyage@gmail.com<br>
     tél :04 31 78 78 78</p>
 </section>
 <section class="navigation">
