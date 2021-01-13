@@ -12,6 +12,7 @@ header{
 }
 .header_toolbar{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
@@ -293,13 +294,32 @@ input{
 .titre h1 span{
     color: #db131d;
 }
+
+.categories ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.categories ul a{
+    padding: 5px 10px;
+    margin: 10px;
+    color: black;
+    font-size: 1.2em;
+    transition: all 0.4s;
+}
+
+.categories a:hover{
+    color: #db131d;
+    transition: all 0.4s;
+}
             
 /* Section contenant les articles */
 .les_articles{
     display: flex;
     justify-content: space-around;
-    padding-bottom: 60px;
+    padding-bottom: 0px;
     flex-wrap: wrap;
+    margin: 20px;
 }
 
 /* Article */
@@ -349,6 +369,99 @@ input{
 .text p{
     color: rgb(31, 30, 30);
     padding: 0 10px;
+}
+
+/* Pagination */
+.pagination{
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #db131d;
+}
+
+.pagination a{
+    color: black;
+    padding: 5px;
+}
+
+                /* ARTICLE */
+.main_article{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(243, 243, 243);
+}
+
+.container_article{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.article_article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    text-align: justify;
+    margin: 10px 0;
+
+}
+
+.article_article h1{
+    font-size: 1.8em;
+    margin: 15px 0;
+}
+
+.main_article h2{
+    font-size: 1.4em;
+    margin: 25px 0 10px 0;
+}
+
+.article_article img{
+    width: 100%;
+    max-height: 500px;
+    margin-bottom: 20px;
+}
+
+.article_artilce p{
+    margin: 10px;
+}
+
+.commentaires_article{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    
+}
+
+.commentaire_article{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(241, 238, 238);
+    margin: 5px 0;
+    padding: 10px;
+}
+
+.commentaire_article .identite p{
+    font-size: 1.2em;
+    color: #db131d;
+    
+}
+
+.commentaire_article .message{
+    width: 70%;
+}
+
+.ajout_commentaire textarea{
+    width: 100%;
+}
+
+.ajout_commentaire input{
+    width: 400px;
 }
 
 
