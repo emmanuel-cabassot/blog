@@ -13,7 +13,6 @@ use App\Autoloader;
 // Autoloader
 Autoloader::register();
 
-
 // On détermine sur quelle page on se trouve
 if(isset($_GET['start']) AND !empty($_GET['start'])){
     $currentPage = (int) strip_tags($_GET['start']);
@@ -30,10 +29,6 @@ else {
 
 // connexion à la base de données grace à la classe Db et la methode getInstance
 $bdd = Db::getInstance(); 
-
-
-
-
 
 // On détermine le nombre total d'articles
 $sql = 'SELECT  COUNT(*) AS nb_articles FROM `articles` '.$categorie_chiffre.'';
