@@ -37,7 +37,7 @@ if (isset($_POST['valider'])) {
     $sql = $bdd->prepare('INSERT INTO `commentaires`( `commentaire`, `id_article`, `id_utilisateur`, `date`) VALUES (:commentaire, :article, :utilisateur, NOW())');
     $sql->execute(array(
         'commentaire'=>$_POST['commentaire'],
-        'article'=>$_GET['id'],
+        'article'=>$_GET['id'] ,
          'utilisateur'=>$_SESSION['user']['id']
     ));
 }
