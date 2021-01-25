@@ -38,7 +38,7 @@ if (isset($_POST['valider'])) {
     $sql->execute(array(
         'commentaire'=>$_POST['commentaire'],
         'article'=>$_GET['id'],
-        'utilisateur'=>$_SESSION['user']['id']
+         'utilisateur'=>$_SESSION['user']['id']
     ));
 }
 ?>
