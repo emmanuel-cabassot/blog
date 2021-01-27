@@ -546,4 +546,53 @@ footer .social img{
     margin: 10px;
 }
 
+.admine{
+    text-align: center;
+    color: midnightblue;
+}
+.tableau-style{
+   border-collapse: collapse;
+   min-width: 400px;
+   width: auto;
+   box-shadow: 0 5px rgba(0, 0,0, 0.15);
+   cursor: pointer;
+   margin: 100px auto;
+   border: 2px solid midnightblue;
+}
+thead tr{
+    background-color:midnightblue;
+    color: #fff;
+    text-align: left;
+
+}
+th,td{
+    padding: 15px 20px;
+}
+tbody tr,td,th{
+    border: solid#ddd;
+
+}
+tbody tr:nth-child(even){
+    background-color: #f3f3f3;
+}
+.article{
+    text-align: center;
+    color: midnightblue;
+    padding-bottom: 3%;
+}
+.articles{
+    color: midnightblue;
+}
+.boutton{
+    display: inline-block;
+    font-size: 0.785rem;
+    padding: 1rem 2.5rem;
+    border-radius: 100px;
+    border: 1px solid #ededed;
+    color: #252525;
+}
+
+
+
+
 
