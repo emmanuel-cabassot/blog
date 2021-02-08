@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require 'traitement/traitement-index.php';
     
 ?>
@@ -17,7 +18,9 @@
     <title>Document</title>
 </head>
 <body>
-    <?php require('php/include/header.php') ?>
+    <header>
+        <?php require('php/include/header.php') ?>
+    </header>
     <main>
         <?php for ($t= 0 ; $t < COUNT($resultat) ; $t++) :?>
             <section>
@@ -29,6 +32,7 @@
         <?php endfor ;?>
     </main>
     <footer>
+        <?php require('php/include/footer.php') ?>
     </footer>
 </body>
 </html>

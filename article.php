@@ -23,15 +23,6 @@ $article = $query->fetch();
 
 $id = $_GET['id'];
 
-/* $sql = 'SELECT * FROM commentaires WHERE id_article = '.$_GET['id'].''; */
-$sql = 'SELECT *
-FROM commentaires
-INNER JOIN utilisateurs
-WHERE commentaires.id_utilisateur = utilisateurs.id AND id_article = '.$_GET['id'];
-$query = $bdd->prepare($sql);
-$query->execute();
-$commentaires = $query->fetchAll();
-
 if (isset($_POST['valider'])) {
     $post_comm = $_POST['commentaire'];
     $sql = $bdd->prepare('INSERT INTO `commentaires`( `commentaire`, `id_article`, `id_utilisateur`, `date`) VALUES (:commentaire, :article, :utilisateur, NOW())');
@@ -41,6 +32,16 @@ if (isset($_POST['valider'])) {
          'utilisateur'=>$_SESSION['user']['id']
     ));
 }
+
+/* $sql = 'SELECT * FROM commentaires WHERE id_article = '.$_GET['id'].''; */
+$sql = 'SELECT *
+FROM commentaires
+INNER JOIN utilisateurs
+WHERE commentaires.id_utilisateur = utilisateurs.id AND id_article = '.$_GET['id'];
+$query = $bdd->prepare($sql);
+$query->execute();
+$commentaires = $query->fetchAll();
+
 ?>
 
 <!DOCTYPE html>

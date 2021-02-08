@@ -57,7 +57,7 @@ if (isset($_POST['login']) AND isset($_POST['password']))
     <?php require('php/include/header.php') ?>
 </header>
 <main class="main_connexion">
-        <section class=connexion>        
+        <section class="connexion">        
             <h1>Connexion</h1>        
             <section>
                 <form action="" method="post">

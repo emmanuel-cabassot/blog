@@ -29,6 +29,7 @@ header{
     padding: 5.8px 10px;
     margin: 0 0 0 30px;
     transition: all 0.6s;
+    font-size: 0.8em;
 }
 
 
@@ -46,7 +47,7 @@ header{
 .header_nav ul{
     display: flex;
     flex-direction: row;
-    padding: 10px 20px 10px 20px;   
+    padding: 10px 20px 10px 20px;  
 }
 
 .header_nav ul{
@@ -54,9 +55,11 @@ header{
 }
 
 .header_nav li a{
-    padding: 5.8px 10px;
-    margin: 0 15px;   
+    padding: 10px 10px;
+    padding-top: 13px;
+    margin: 0 7px;   
     transition: all 0.6s;
+    font-size: 0.8em;
 }
 
 .header_nav  li a:hover{
@@ -84,6 +87,7 @@ header{
     align-items: center;
     text-align: center;
     height: 240px;   
+    background-image: url("img/backgroundPlage.jpg");
 }
 
 .header_slogan h1{
@@ -148,15 +152,21 @@ background-color:  #283445;
 }
 
 
-                /* LABEL ET INPUT (pour toutes les pages) */
+                /* LABEL, INPUT, SELECT, TEXTAREA (pour toutes les pages) */
 label{
     font-size: 1.2em;
 }
 
-input{
+input, select{
     margin-bottom: 15px;
     width: 250px;
     height: 25px;
+}
+
+textarea{
+    margin-bottom: 15px;
+    width: 250px;
+    height: 160px;
 }
                 /* BOUTON SUBMIT (pour toutes les pages) */
 .bouton input{
@@ -229,6 +239,38 @@ input{
 }
 
 .connexion h1{
+    color:  #283445;
+    font-size: 1.9em;
+    margin-bottom: 20px;
+}
+
+                /* CREER UN ARTICLE */
+.main_creer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 620px;
+    text-align: center;
+    background-color:  #283445;
+    }
+
+/* Formulaire creer*/
+.creer_article{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 370px;
+    height: 530px;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    animation: encadre 3s;
+}
+
+.main_creer h1{
     color:  #283445;
     font-size: 1.9em;
     margin-bottom: 20px;

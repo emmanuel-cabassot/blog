@@ -1,17 +1,17 @@
 <section class = header_toolbar>
     <section class = header_logo>
-    <a href="index.php"><img src="src/img/ampoule.png" alt="logo outils"> Voyages</a>
+    <a href="index.php"><img src="img/ampoule.png" alt="logo outils"> Voyages</a>
     </section>
     
     <section class = header_nav>
     <ul>
         <li><a class="accueil" href="index.php">Accueil</a></li>
         <?php if (isset($_SESSION['user'])) {
-            if ($_SESSION['user']['login'] === 'admin' OR $_SESSION['user']['login'] === "administrateur") {
-                echo '<li><a href="creer-article.php">Créer un article</a></li>';
+            if ($_SESSION['user']['id_droits'] == 1337){
+                echo '<li><a href="admin.php">Admin</a></li>';
             }
-            if ($_SESSION['user']['login'] === 'admin'){
-                echo '<li><a href="creer-article.php">Admin</a></li>';
+            if ($_SESSION['user']['id_droits'] == 1337 OR $_SESSION['user']['id_droits'] == 42) {
+                echo '<li><a href="creer-article.php">Créer un article</a></li>';
             }
         } ?>
         <li><a href="articles.php">Articles</a></li>
@@ -19,7 +19,7 @@
         /* Profil ou Inscription */
         if (isset($_SESSION['user'])) 
         {
-            echo '<li><a href="profil.php">profil</a></li>';
+            echo '<li><a href="profil.php">Profil</a></li>';
         }
         else 
         {
@@ -33,7 +33,7 @@
         else 
         {
             echo '<li><a href="deconnexion.php">Déconnexion</a></li>';
-        }
+        }       
         ?>
     </ul>
     </section>
@@ -42,7 +42,7 @@
     <section class="slogantext">
         <h1>
         <?php
-            if (!isset($_SESSION['user'])) 
+            if (!isset($_SESSION['login'])) 
             {
                 echo '<h1>Voyages</h1>
                         <p>Blog de voyage</p>';

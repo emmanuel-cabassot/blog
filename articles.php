@@ -1,4 +1,4 @@
-<?php require 'traitement/traitement-article.php';
+<?php
 
 session_start();
 
@@ -56,10 +56,7 @@ $premier = ($currentPage * $parPage) - $parPage;
 
 $sql =$bdd->query ('SELECT * FROM `articles` '.$categorie_chiffre.' ORDER BY `id` DESC LIMIT '.$premier.', '.$parPage.'');
 
-
-
 $articles = $sql->fetchAll();
-
 
 ?>
 
@@ -75,23 +72,6 @@ $articles = $sql->fetchAll();
 <body>
     <header>
     <?php require('php/include/header.php') ?>
-    </header>
-    <main>
-        <h1 class="article">Les articles</h1>
-        <?php while ($article = $requete->fetch(PDO::FETCH_ASSOC)) :?>
-               <p class="articles"><?= $article['article'] ?></p>
-               <?= $article['date'] ;?>
-               <a class="boutton" href="article.php?id=<?= $article['id'] ?>">Voir l'article</a>
-               
-
-            
-        <?php endwhile ;?>
-    </main>
-    <footer>
-
-    </footer>
-    
-        <?php require('php/include/header.php') ?>
     </header>
     <main class="main_articles">
         <section class="page_articles">

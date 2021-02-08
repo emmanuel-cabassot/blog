@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'traitement/traitement-admin.php';
 
 ?>
@@ -17,7 +18,11 @@ require 'traitement/traitement-admin.php';
     <title>Document</title>
 </head>
 <body>
-<h1 class='admine'>Bienvenu admin</h1>
+    <header>
+        <?php require('php/include/header.php') ?>
+    </header>
+    <main>
+<h1 class='admine'></h1>
 
     <!-- TABLEAU UTILISATEURS -->
     <table class='tableau-style'>
@@ -64,12 +69,14 @@ require 'traitement/traitement-admin.php';
             <td><?=$resultat2[$arti]['login']?></td>
             <td><a href="modifier-article.php?id=<?= $resultat2[$arti]['id_article']?>">Modifier</a></td>
             <td><a href="traitement/traitement-supprimer-article.php?id=<?= $resultat2[$arti]['id_article']?>">supprimer</a></td>
-        </tr>
-
-    
+        </tr>  
     <?php endfor;?>
     </tbody>
     </table>
+    </main>
+    <footer>
+        <?php require('php/include/footer.php') ?>
+    </footer>
     
 </body>
 </html>

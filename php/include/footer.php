@@ -1,5 +1,5 @@
 <section class="logo">
-    <div><img src="src/img/ordinateur.gif" alt="logo outils"></div> <div class="texte">PC pro</div>
+    <div><a href="index.php"><img src="img/ampoule.png" alt="logo ampoule"></div> <div class="texte">Voyages</div></a>
 
 </section>
 <section class="coordonnees">
@@ -14,7 +14,7 @@
     <h3>Navigation</h3>
     <ul>
         <li><a href="index.php">Accueil</a></li>
-        <li><a href="index.php">Articles</a></li>
+        <li><a href="articles.php">Articles</a></li>
         <?php 
         if (isset($_SESSION['login'])) {
             ?>
@@ -44,9 +44,9 @@
     </ul>
 </section>
 <section class="social">
-    <div><img src="src/img/facebook.png" alt="logo facebook"></div>
-    <div><img src="src/img/instagram.png" alt="logo instagram"></div>
-    <div><img src="src/img/twitter.png" alt="logo twitter"></div>
+    <div><a href="https://www.facebook.com"><img src="img/facebook.png" alt="logo facebook"></a></div>
+    <div><a href="https://www.instagram.com"><img src="img/instagram.png" alt="logo instagram"></a></div>
+    <div><a href="https://www.twitter.com"><img src="img/twitter.png" alt="logo twitter"></a></div>
 </section>
 
 </body>
