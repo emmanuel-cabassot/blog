@@ -633,8 +633,14 @@ tbody tr:nth-child(even){
     border: 1px solid #ededed;
     color: #252525;
 }
+input, textarea, select, option {
+    background-color:#FFF3F3;
+}
+input, textarea, select {
+    padding:3px;
+    border:1px solid #F5C5C5;
+    border-radius:5px;
+    width:100%;
+    box-shadow:1px 1px 2px #C0C0C0 inset;
 
-
-
-
-
+    }

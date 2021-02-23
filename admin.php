@@ -41,6 +41,7 @@ require 'traitement/traitement-admin.php';
                 <td><?=$resultat[$tab]['login']?></td>
                 <td><?=$resultat[$tab]['email']?></td>
                 <td><?=$resultat[$tab]['id_droits']?></td>
+                <td><a href="modifier-article.php?id=<?= $resultat[$tab]['id'];?>">Modification</a></td>
                 <td><a href="traitement/supprimer.php?id=<?=$resultat[$tab]['id'];?>">suprimer</a></td>
             </tr>
         <?php endfor;?>

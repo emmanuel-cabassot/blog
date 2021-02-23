@@ -17,17 +17,24 @@ $resultat02=$requete02->fetch(PDO::FETCH_ASSOC);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>modifier article</title>
 </head>
 <body>
 <header>
+<?php require('php/include/header.php') ?>
+
 
 </header>
 <main>
 
 </main>
+
 <footer>
+    <div class='cssform'>
+    
 <form action="traitement/traitement-modif-article.php?id=<?=$id?>"method="post">
 <div>
 <label for="article">article</label>
@@ -40,8 +47,13 @@ $resultat02=$requete02->fetch(PDO::FETCH_ASSOC);
 <?php endfor ;?>
 
 </select>
-<input type="submit">
+
 </form>
+<div>
+<input type="submit">
+</div>
+
+
 </div>
 
 
